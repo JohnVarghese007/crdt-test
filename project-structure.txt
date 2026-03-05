@@ -1,0 +1,32 @@
+crdt-test/
+│
+├── frontend/
+│   └── react/
+│       ├── src/
+│       │   ├── components/
+│       │   ├── pages/
+│       │   ├── hooks/
+│       │   ├── lib/          # CRDT client logic (Y.js, Automerge, etc.)
+│       │   └── index.tsx
+│       ├── public/
+│       ├── package.json
+│       ├── tsconfig.json
+│       └── vite.config.ts    # or next.config.js if using Next
+│
+└── backend/
+    ├── src/
+    │   ├── api/
+    │   │   ├── board.routes.ts
+    │   │   └── board.controller.ts
+    │   ├── models/
+    │   │   └── Board.ts
+    │   ├── services/
+    │   │   └── crdt.service.ts   # snapshot merge, persistence helpers
+    │   ├── ws/
+    │   │   └── socket.ts         # WebSocket server for CRDT updates
+    │   ├── config/
+    │   │   └── db.ts             # MongoDB connection
+    │   └── server.ts
+    ├── package.json
+    ├── tsconfig.json
+    └── .env
