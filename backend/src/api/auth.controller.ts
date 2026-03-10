@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import User from "../models/User";
 import jwt from "jsonwebtoken";
 
-// login and register functions for user authentication
+// register endpoint: POST /api/auth/register
 export async function register(req: Request, res: Response) {
   const { username, password } = req.body;
 
@@ -14,6 +14,7 @@ export async function register(req: Request, res: Response) {
   }
 }
 
+// login endpoint: POST /api/auth/login
 export async function login(req: Request, res: Response) {
   const { username, password } = req.body;
 
