@@ -1,0 +1,21 @@
+services:
+  backend:
+    build:
+      context: ./backend
+    container_name: crdt-backend
+    restart: unless-stopped
+    environment:
+      MONGO_URI: ${MONGO_URI}
+      JWT_SECRET: ${JWT_SECRET:-change-this-in-prod}
+    ports:
+      - "4000:4000"
+
+  frontend:
+    build:
+      context: ./frontend/react
+    container_name: crdt-frontend
+    restart: unless-stopped
+    depends_on:
+      - backend
+    ports:
+      - "5173:80"
